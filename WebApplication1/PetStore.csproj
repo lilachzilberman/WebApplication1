@@ -224,6 +224,8 @@
     <Content Include="Images\background7.jpg" />
     <Content Include="Images\background8.jpg" />
     <Content Include="Images\background9.jpg" />
+    <Content Include="Images\getAPet1.png" />
+    <Content Include="Images\GetAPET2.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -232,6 +234,10 @@
     <Content Include="fonts\Zootopia JPosters.com.ar.otf" />
     <Content Include="fonts\JackintheBox.ttf" />
     <Content Include="fonts\Queen of Heaven.ttf" />
+    <Content Include="fonts\POORICH.TTF" />
+    <Content Include="fonts\Gaitera_Ball-demo-FFP.ttf" />
+    <Content Include="fonts\GEOMA THIN DEMO.OTF" />
+    <Content Include="fonts\GECKO_PERSONALUSEONLY.TTF" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

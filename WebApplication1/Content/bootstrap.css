@@ -2401,8 +2401,8 @@ input[type="button"].btn-block {
   src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
       */
   font-family: 'Queen of Heaven';
-  src: url('../fonts/Queen of Heaven.ttf');
-  src: url('../fonts/Queen of Heaven.ttf') format('truetype');
+  src: url('../fonts/GECKO_PERSONALUSEONLY.TTF');
+  src: url('../fonts/GECKO_PERSONALUSEONLY.TTF') format('truetype');
 }
 
 .glyphicon {
