@@ -29,5 +29,15 @@ namespace WebApplication1.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<WebApplication1.Models.Products> Products { get; set; }
+
+        public System.Data.Entity.DbSet<WebApplication1.Models.Supplier> Suppliers { get; set; }
+
+        public System.Data.Entity.DbSet<WebApplication1.Models.Branches> Branches { get; set; }
+
+        public System.Data.Entity.DbSet<WebApplication1.Models.Orders> Orders { get; set; }
+
+        public System.Data.Entity.DbSet<WebApplication1.Models.OrderProducts> OrderProducts { get; set; }
     }
 }
