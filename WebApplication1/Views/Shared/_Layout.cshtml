@@ -49,29 +49,31 @@
                                     <li><a href="#">Rodents</a></li>
                                 </ul>
                             </section>
-                            <section>
-                                <header>
-                                    <h3>Admin Options</h3>
-                                </header>
-                                <ul>
-                                    <li>@Html.ActionLink("Products", "Index", "Products")</li>
-                                    <li>@Html.ActionLink("Branches", "Index", "Branches")</li>
-                                    <li>@Html.ActionLink("Suppliers", "Index", "Suppliers")</li>
-                                </ul>
-                            </section>
+
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <section>
+                                    <header>
+                                        <h3>Admin Options</h3>
+                                    </header>
+                                    <ul>
+                                        <li>@Html.ActionLink("Products", "Index", "Products")</li>
+                                        <li>@Html.ActionLink("Branches", "Index", "Branches")</li>
+                                        <li>@Html.ActionLink("Suppliers", "Index", "Suppliers")</li>
+                                    </ul>
+                                </section>
+                            }
                         </aside>
                     </div>
                 </section>
-
                 <section>
                     <div class="col-md-10">
                         @RenderBody()
                     </div>
                 </section>
+            </div>
 
-                </div>
-
-                <hr />
+            <hr />
 
 
         <footer>
