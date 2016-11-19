@@ -14,7 +14,8 @@ namespace WebApplication1.Models
             OrderProducts = new HashSet<OrderProducts>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required]

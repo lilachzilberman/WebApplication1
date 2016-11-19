@@ -8,7 +8,8 @@ namespace WebApplication1.Models
 
     public partial class Products
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required]
@@ -30,6 +31,7 @@ namespace WebApplication1.Models
 
         [Required]
         [StringLength(100)]
+        [Display(Name = "Picture Path")]
         public string PicturePath { get; set; }
     }
 }

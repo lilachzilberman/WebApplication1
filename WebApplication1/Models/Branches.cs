@@ -8,7 +8,8 @@ namespace WebApplication1.Models
 
     public partial class Branches
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required]

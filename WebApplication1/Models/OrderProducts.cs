@@ -8,7 +8,8 @@ namespace WebApplication1.Models
 
     public partial class OrderProducts
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         public int ProductId { get; set; }

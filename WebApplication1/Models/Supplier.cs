@@ -8,7 +8,8 @@ namespace WebApplication1.Models
 
     public partial class Supplier
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required]
@@ -17,10 +18,12 @@ namespace WebApplication1.Models
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Warehouse Address")]
         public string WarehouseAddress { get; set; }
     }
 }
