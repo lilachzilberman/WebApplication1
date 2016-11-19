@@ -1,6 +1,14 @@
-﻿body {
+@font-face {
+    font-family: 'Gecko';
+    src: url('../fonts/GECKO_PERSONALUSEONLY.TTF');
+    src: url('../fonts/GECKO_PERSONALUSEONLY.TTF') format('truetype');
+}
+
+body {
+    font-family: "Gecko", "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image: url('../images/background.jpg');
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +29,11 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+aside {
+    background-color: #999 ;
+    text-decoration: none;
+    overflow-y: visible;
+    border-color: #999;
 }

@@ -311,22 +311,13 @@ html {
 }
 
 body {
-  font-family: "Queen of Heaven", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
-  background-image: url('../images/background.jpg');
+  background-image: url('../images/background7.jpg');
   background-repeat: repeat;
 }
-
-
-
-aside {
-		background-color: #999 ;
-        text-decoration: none;
-        overflow-y: visible;
-        border-color: #999;
-	}
 
 input,
 button,
@@ -2402,16 +2393,6 @@ input[type="button"].btn-block {
   overflow: hidden;
   -webkit-transition: height 0.35s ease;
           transition: height 0.35s ease;
-}
-
-@font-face {
-  /*font-family: 'Glyphicons Halflings';
-  src: url('../fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
-      */
-  font-family: 'Queen of Heaven';
-  src: url('../fonts/GECKO_PERSONALUSEONLY.TTF');
-  src: url('../fonts/GECKO_PERSONALUSEONLY.TTF') format('truetype');
 }
 
 .glyphicon {
