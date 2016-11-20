@@ -228,6 +228,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\background.jpg" />
     <Content Include="Images\background10.jpg" />
+    <Content Include="Images\dummy.jpg" />
     <Content Include="Images\GetAPET2.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -309,6 +310,7 @@
     <Content Include="Views\OrderProducts\Details.cshtml" />
     <Content Include="Views\OrderProducts\Edit.cshtml" />
     <Content Include="Views\OrderProducts\Index.cshtml" />
+    <Content Include="Views\Products\Catalog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

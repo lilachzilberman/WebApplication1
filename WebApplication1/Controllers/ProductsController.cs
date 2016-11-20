@@ -141,5 +141,11 @@ namespace WebApplication1.Controllers
                 Text = h.Name
             }).ToArray();
         }
+
+        // GET: Products/Catalog
+        public ActionResult Catalog()
+        {
+            return View(db.Products.ToList());
+        }
     }
 }
