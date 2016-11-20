@@ -39,6 +39,7 @@ namespace WebApplication1.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
+            fetchSuppliers();
             return View();
         }
 
@@ -48,7 +49,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Create([Bind(Include = "Id,Name,Price,Supplier,Animal,Category,PicturePath")] Products products)
+        public ActionResult Create([Bind(Include = "Id,Name,Price,SupplierId,Animal,Category,PicturePath")] Products products)
         {
             if (ModelState.IsValid)
             {
@@ -73,6 +74,7 @@ namespace WebApplication1.Controllers
             {
                 return HttpNotFound();
             }
+            fetchSuppliers();
             return View(products);
         }
 
@@ -82,7 +84,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include = "Id,Name,Price,Supplier,Animal,Category,PicturePath")] Products products)
+        public ActionResult Edit([Bind(Include = "Id,Name,Price,SupplierId,Animal,Category,PicturePath")] Products products)
         {
             if (ModelState.IsValid)
             {
@@ -129,6 +131,15 @@ namespace WebApplication1.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        protected void fetchSuppliers()
+        {
+            ViewBag.SupplierOptions = db.Suppliers.Select(h => new SelectListItem
+            {
+                Value = h.Id.ToString(),
+                Text = h.Name
+            }).ToArray();
         }
     }
 }

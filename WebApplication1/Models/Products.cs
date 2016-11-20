@@ -19,7 +19,10 @@ namespace WebApplication1.Models
         [Column(TypeName = "money")]
         public decimal Price { get; set; }
 
-        public int Supplier { get; set; }
+        public virtual int SupplierId { get; set; }
+
+        [ForeignKey("SupplierId")]
+        public virtual Supplier Supplier { get; set; }
 
         [Required]
         [StringLength(50)]
