@@ -39,7 +39,7 @@ namespace WebApplication1.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
-            fetchSuppliers();
+            fetchFKs();
             return View();
         }
 
@@ -74,7 +74,7 @@ namespace WebApplication1.Controllers
             {
                 return HttpNotFound();
             }
-            fetchSuppliers();
+            fetchFKs();
             return View(products);
         }
 
@@ -133,11 +133,23 @@ namespace WebApplication1.Controllers
             base.Dispose(disposing);
         }
 
-        protected void fetchSuppliers()
+        protected void fetchFKs()
         {
             ViewBag.SupplierOptions = db.Suppliers.Select(h => new SelectListItem
             {
                 Value = h.Id.ToString(),
+                Text = h.Name
+            }).ToArray();
+
+            ViewBag.AnimalsTypes = db.Animals.Select(h => new SelectListItem
+            {
+                Value = h.Name,
+                Text = h.Name
+            }).ToArray();
+
+            ViewBag.CategoriesTypes = db.Categories.Select(h => new SelectListItem
+            {
+                Value = h.Name,
                 Text = h.Name
             }).ToArray();
         }

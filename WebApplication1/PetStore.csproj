@@ -209,7 +209,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Animals.cs" />
     <Compile Include="Models\Branches.cs" />
+    <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OrderProducts.cs" />
@@ -230,6 +232,10 @@
     <Content Include="Images\background10.jpg" />
     <Content Include="Images\dummy.jpg" />
     <Content Include="Images\GetAPET2.png" />
+    <Content Include="Images\gplaypattern.png" />
+    <Content Include="Images\plaid.png" />
+    <Content Include="Images\swirl_pattern.png" />
+    <Content Include="Images\symphony.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
