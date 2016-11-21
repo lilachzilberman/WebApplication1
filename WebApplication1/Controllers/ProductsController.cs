@@ -49,7 +49,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Create([Bind(Include = "Id,Name,Price,SupplierId,Animal,Category,PicturePath")] Products products)
+        public ActionResult Create([Bind(Include = "Id,Name,Price,SupplierId,AnimalsId,CategoryId,PicturePath")] Products products)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +84,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include = "Id,Name,Price,SupplierId,Animal,Category,PicturePath")] Products products)
+        public ActionResult Edit([Bind(Include = "Id,Name,Price,SupplierId,AnimalsId,CategoryId,PicturePath")] Products products)
         {
             if (ModelState.IsValid)
             {
@@ -143,13 +143,13 @@ namespace WebApplication1.Controllers
 
             ViewBag.AnimalsTypes = db.Animals.Select(h => new SelectListItem
             {
-                Value = h.Name,
+                Value = h.Id.ToString(),
                 Text = h.Name
             }).ToArray();
 
             ViewBag.CategoriesTypes = db.Categories.Select(h => new SelectListItem
             {
-                Value = h.Name,
+                Value = h.Id.ToString(),
                 Text = h.Name
             }).ToArray();
         }

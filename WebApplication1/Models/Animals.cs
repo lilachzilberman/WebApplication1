@@ -8,6 +8,7 @@ namespace WebApplication1.Models
 
     public partial class Animals
     {
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 

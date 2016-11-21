@@ -25,12 +25,16 @@ namespace WebApplication1.Models
         public virtual Supplier Supplier { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string Animal { get; set; }
+        public virtual int AnimalsId { get; set; }
+
+        [ForeignKey("AnimalsId")]
+        public virtual Animals Animals { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string Category { get; set; }
+        public virtual int CategoryId { get; set; }
+
+        [ForeignKey("CategoryId")]
+        public virtual Categories Category { get; set; }
 
         [Required]
         [StringLength(100)]

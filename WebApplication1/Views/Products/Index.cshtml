@@ -25,7 +25,7 @@
             @Html.DisplayNameFor(model => model.Supplier)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Animal)
+            @Html.DisplayNameFor(model => model.Animals)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Category)
@@ -48,10 +48,10 @@
             @Html.DisplayFor(modelItem => item.Supplier.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Animal)
+            @Html.DisplayFor(modelItem => item.Animals.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Category)
+            @Html.DisplayFor(modelItem => item.Category.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PicturePath)

@@ -12,10 +12,10 @@
         <img src="~/images/dummy.jpg" />
         <h4>   @Html.DisplayFor(modelItem => item.Name)</h4>
         <ul class="list-unstyled">
-            <li>For @Html.DisplayFor(modelItem => item.Animal)</li>
+            <li>For @Html.DisplayFor(modelItem => item.Animals.Name)</li>
             <li>@Html.DisplayNameFor(model => model.SupplierId): @Html.DisplayFor(modelItem => item.Supplier.Name)</li>
             <li>@Html.DisplayNameFor(model => model.Price): @Html.DisplayFor(modelItem => item.Price)</li>
-            <li>@Html.DisplayNameFor(model => model.Category): @Html.DisplayFor(modelItem => item.Category)</li>
+            <li>@Html.DisplayNameFor(model => model.Category): @Html.DisplayFor(modelItem => item.Category.Name)</li>
         </ul>
     </div>
 }

@@ -8,7 +8,6 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Products</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -32,15 +31,15 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Supplier)
+            @Html.DisplayFor(model => model.Supplier.Name)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Animal)
+            @Html.DisplayNameFor(model => model.Animals)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Animal)
+            @Html.DisplayFor(model => model.Animals.Name)
         </dd>
 
         <dt>
@@ -48,17 +47,9 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Category)
+            @Html.DisplayFor(model => model.Category.Name)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PicturePath)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PicturePath)
-        </dd>
-
+        
     </dl>
 </div>
 <p>
