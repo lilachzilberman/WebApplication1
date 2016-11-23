@@ -37,3 +37,7 @@ aside {
     overflow-y: visible;
     border-color: #999;
 }
+
+img {
+    max-width: 40%;
+}

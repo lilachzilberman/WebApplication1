@@ -7,15 +7,53 @@
 
 <h2>Product Catalog</h2>
 
-@foreach (var item in Model) {
-    <div class="col-md-4">
-        <img src="~/images/dummy.jpg" />
-        <h4>   @Html.DisplayFor(modelItem => item.Name)</h4>
-        <ul class="list-unstyled">
-            <li>For @Html.DisplayFor(modelItem => item.Animals.Name)</li>
-            <li>@Html.DisplayNameFor(model => model.SupplierId): @Html.DisplayFor(modelItem => item.Supplier.Name)</li>
-            <li>@Html.DisplayNameFor(model => model.Price): @Html.DisplayFor(modelItem => item.Price)</li>
-            <li>@Html.DisplayNameFor(model => model.Category): @Html.DisplayFor(modelItem => item.Category.Name)</li>
-        </ul>
-    </div>
+<h3>Filter By</h3>
+@using (Html.BeginForm("Catalog", "Products", FormMethod.Get))
+{
+    <p>
+        Animal: @Html.DropDownList("AnimalsTypes")
+        Category: @Html.DropDownList("CategoriesTypes")
+        min. price: @Html.TextBox("minPrice")
+        max. price: @Html.TextBox("maxPrice")
+        <input type="submit" value="Filter" />
+    </p>
+}
+
+<h3>Group By</h3>
+
+@using (Html.BeginForm("Catalog", "Products", FormMethod.Get))
+{
+    <p>
+        @Html.RadioButton("Group", "Animal") Animal
+        @Html.RadioButton("Group", "Category") Category
+
+        <input type="submit" value="Group by" />
+    </p>
+}
+
+
+@if (string.IsNullOrEmpty(ViewBag.Group))
+{
+    @Html.Partial("ProductRowPartial", Model)
+} else
+{
+    IEnumerable<IGrouping<int, WebApplication1.Models.Products>> grouped = null;
+    if (ViewBag.Group == "Animal")
+    {
+        grouped = Model.GroupBy(p => p.AnimalsId);
+    }
+    else if (ViewBag.Group == "Category")
+    {
+        grouped = Model.GroupBy(p => p.CategoryId);
+    }
+    if (grouped != null)
+    {
+        foreach (var group in grouped)
+        {
+            <div>
+                @group.Key
+            </div>
+            @Html.Partial("ProductRowPartial", group)
+        }
+    }
 }

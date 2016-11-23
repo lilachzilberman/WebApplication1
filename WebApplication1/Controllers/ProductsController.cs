@@ -155,9 +155,73 @@ namespace WebApplication1.Controllers
         }
 
         // GET: Products/Catalog
-        public ActionResult Catalog()
+        public ActionResult Catalog(string AnimalsTypes, string CategoriesTypes, string minPrice, string maxPrice, string Group)
         {
-            return View(db.Products.ToList());
+            var products = db.Products.Include(path => path.Supplier);
+
+            if (!String.IsNullOrEmpty(AnimalsTypes))
+            {
+                products = SearchByAnimal(products, AnimalsTypes);
+            }
+
+            if (!String.IsNullOrEmpty(CategoriesTypes))
+            {
+                products = SearchByCategoryName(products, CategoriesTypes);
+            }
+
+            if (!(String.IsNullOrEmpty(minPrice) && String.IsNullOrEmpty(maxPrice)))
+            {
+                products = SearchByPrice(products, minPrice, maxPrice);
+            }
+
+            ViewBag.Group = Group;
+
+            fetchFKsForFilter();
+            return View(products.ToList());
+        }
+
+        protected void fetchFKsForFilter()
+        {
+            List<SelectListItem> animals = db.Animals.Select(h => new SelectListItem
+            {
+                Value = h.Id.ToString(),
+                Text = h.Name
+            }).ToList();
+            animals.Add(new SelectListItem { Text = "", Value = null, Selected = true });
+
+            ViewBag.AnimalsTypes = animals.ToArray();
+
+            List<SelectListItem> categories = db.Categories.Select(h => new SelectListItem
+            {
+                Value = h.Id.ToString(),
+                Text = h.Name
+            }).ToList();
+            categories.Add(new SelectListItem { Text = "", Value = null, Selected = true });
+            ViewBag.CategoriesTypes = categories.ToArray();
+        }
+
+        public IQueryable<Products> SearchByAnimal(IQueryable<Products> products, string animalName)
+        {
+            return products.Where(p => p.AnimalsId.ToString().Equals(animalName));
+        }
+        public IQueryable<Products> SearchByCategoryName(IQueryable<Products> products, string categoryName)
+        {
+            return products.Where(p => p.CategoryId.ToString().Equals(categoryName));
+        }
+        public IQueryable<Products> SearchByPrice(IQueryable<Products> products, string min, string max)
+        {
+            if (!String.IsNullOrEmpty(min))
+            {
+                int minInt = int.Parse(min);
+                products = products.Where(p => p.Price >= minInt);
+            }
+            if (!String.IsNullOrEmpty(max))
+            {
+                int maxInt = int.Parse(max);
+                products = products.Where(p => p.Price <= maxInt);
+            }
+
+            return products;
         }
     }
 }

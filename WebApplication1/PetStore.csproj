@@ -323,6 +323,7 @@
     <Content Include="Views\Animals\Dogs.cshtml" />
     <Content Include="Views\Animals\Birds.cshtml" />
     <Content Include="Views\Animals\Fish.cshtml" />
+    <Content Include="Views\Products\ProductRowPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
