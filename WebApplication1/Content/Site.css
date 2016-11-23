@@ -41,3 +41,13 @@ aside {
 img {
     max-width: 40%;
 }
+
+
+    #map_canvas img {
+        max-width: none;
+        height: 600px;
+    }
+
+    .branches_map {
+        height: 600px;
+    }

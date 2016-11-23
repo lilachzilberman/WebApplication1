@@ -229,8 +229,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\background.jpg" />
-    <Content Include="Images\background10.jpg" />
     <Content Include="Images\dummy.jpg" />
     <Content Include="Images\GetAPET2.png" />
     <Content Include="Images\gplaypattern.png" />
@@ -250,6 +248,7 @@
     <Content Include="fonts\GEOMA THIN DEMO.OTF" />
     <Content Include="fonts\GECKO_PERSONALUSEONLY.TTF" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\MapScript.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -324,6 +323,7 @@
     <Content Include="Views\Animals\Birds.cshtml" />
     <Content Include="Views\Animals\Fish.cshtml" />
     <Content Include="Views\Products\ProductRowPartial.cshtml" />
+    <Content Include="Views\Branches\Map.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

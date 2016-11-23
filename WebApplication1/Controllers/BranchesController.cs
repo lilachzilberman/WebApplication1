@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
@@ -14,6 +15,12 @@ namespace WebApplication1.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        private readonly JavaScriptSerializer _jsonSerializer;
+
+        public BranchesController()
+        {
+            _jsonSerializer = new JavaScriptSerializer();
+        }
         // GET: Branches
         public ActionResult Index()
         {
@@ -129,6 +136,20 @@ namespace WebApplication1.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        // GET: Branches/Map
+        public ActionResult Map()
+        {
+            return View();
+        }
+
+        public string GetBranchesInJsonFormat()
+        {
+            using (var context = new ApplicationDbContext())
+             {
+                 return _jsonSerializer.Serialize(context.Branches.ToArray());
+             }
         }
     }
 }

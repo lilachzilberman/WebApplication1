@@ -50,9 +50,8 @@
     {
         foreach (var group in grouped)
         {
-            <div>
-                @group.Key
-            </div>
+            <h3>@group.Key</h3>
+            <hr/>
             @Html.Partial("ProductRowPartial", group)
         }
     }
