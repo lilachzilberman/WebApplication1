@@ -16,6 +16,7 @@
             <div class="container">
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li>@Html.ActionLink("Product Catalog", "Catalog", "Products")</li>
                         <li>@Html.ActionLink("Branches", "Index", "Branches")</li>
                     </ul>
@@ -50,6 +51,7 @@
                                         <li>@Html.ActionLink("Products", "Index", "Products")</li>
                                         <li>@Html.ActionLink("Branches", "Index", "Branches")</li>
                                         <li>@Html.ActionLink("Suppliers", "Index", "Suppliers")</li>
+                                        <li>@Html.ActionLink("Orders", "OrdersView", "Orders")</li>
                                     </ul>
                                 </section>
                             }

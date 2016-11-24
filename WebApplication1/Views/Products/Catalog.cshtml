@@ -8,51 +8,33 @@
 <h2>Product Catalog</h2>
 
 <h3>Filter By</h3>
-@using (Html.BeginForm("Catalog", "Products", FormMethod.Get))
+@using (Html.BeginForm("Catalog", "Products", FormMethod.Get, new { id = "catalogFilterForm" }))
 {
-    <p>
-        Animal: @Html.DropDownList("AnimalsTypes")
-        Category: @Html.DropDownList("CategoriesTypes")
-        min. price: @Html.TextBox("minPrice")
-        max. price: @Html.TextBox("maxPrice")
+    <div class="filterArea">
+        <div class="filterField">Animal: @Html.DropDownList("AnimalsTypes")</div>
+        <div class="filterField">Category: @Html.DropDownList("CategoriesTypes")</div>
+        <div class="filterField">min. price: @Html.TextBox("minPrice", null, new { size = 5 } )</div>
+        <div class="filterField">max. price: @Html.TextBox("maxPrice", null, new { size = 5 } )</div>
         <input type="submit" value="Filter" />
-    </p>
-}
-
-<h3>Group By</h3>
-
-@using (Html.BeginForm("Catalog", "Products", FormMethod.Get))
-{
-    <p>
-        @Html.RadioButton("Group", "Animal") Animal
-        @Html.RadioButton("Group", "Category") Category
-
-        <input type="submit" value="Group by" />
-    </p>
+    </div>
 }
 
 
-@if (string.IsNullOrEmpty(ViewBag.Group))
-{
-    @Html.Partial("ProductRowPartial", Model)
-} else
-{
-    IEnumerable<IGrouping<int, WebApplication1.Models.Products>> grouped = null;
-    if (ViewBag.Group == "Animal")
-    {
-        grouped = Model.GroupBy(p => p.AnimalsId);
-    }
-    else if (ViewBag.Group == "Category")
-    {
-        grouped = Model.GroupBy(p => p.CategoryId);
-    }
-    if (grouped != null)
-    {
-        foreach (var group in grouped)
-        {
-            <h3>@group.Key</h3>
-            <hr/>
-            @Html.Partial("ProductRowPartial", group)
-        }
-    }
+@Html.Partial("ProductRowPartial", Model)
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $("#catalogFilterForm").validate({
+            rules: {
+                minPrice: {
+                    number: true
+                },
+                maxPrice: {
+                    number: true
+                }
+            }
+        });
+    </script>
 }

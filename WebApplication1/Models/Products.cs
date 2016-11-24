@@ -36,7 +36,6 @@ namespace WebApplication1.Models
         [ForeignKey("CategoryId")]
         public virtual Categories Category { get; set; }
 
-        [Required]
         [StringLength(100)]
         [Display(Name = "Picture Path")]
         public string PicturePath { get; set; }

@@ -40,11 +40,8 @@ namespace WebApplication1.Models
 
         public System.Data.Entity.DbSet<WebApplication1.Models.OrderProducts> OrderProducts { get; set; }
 
-          public System.Data.Entity.DbSet<WebApplication1.Models.Animals> Animals { get; set; }
+        public System.Data.Entity.DbSet<WebApplication1.Models.Animals> Animals { get; set; }
 
-          public System.Data.Entity.DbSet<WebApplication1.Models.Categories> Categories { get; set; }
-
-       // public virtual DbSet<Animals> Animals { get; set; }
-       // public virtual DbSet<Categories> Categories { get; set; }
+        public System.Data.Entity.DbSet<WebApplication1.Models.Categories> Categories { get; set; }
     }
 }

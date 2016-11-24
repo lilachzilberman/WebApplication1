@@ -1,11 +1,12 @@
-@font-face {
-    font-family: 'Gecko';
-    src: url('../fonts/GECKO_PERSONALUSEONLY.TTF');
-    src: url('../fonts/GECKO_PERSONALUSEONLY.TTF') format('truetype');
+@font-face
+{
+    font-family: 'POORICH';
+    src: url('../fonts/POORICH.TTF');
+    src: url('../fonts/POORICH.TTF') format('truetype');
 }
 
 body {
-    font-family: "Gecko", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "POORICH", "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding-top: 50px;
     padding-bottom: 20px;
     background-image: url('../images/symphony.png');
@@ -32,7 +33,7 @@ textarea {
 }
 
 aside {
-    background-color: #999;
+    background-color: #dec9c9;
     text-decoration: none;
     overflow-y: visible;
     border-color: #999;
@@ -43,11 +44,75 @@ img {
 }
 
 
-    #map_canvas img {
-        max-width: none;
-        height: 600px;
-    }
+#map_canvas img {
+    max-width: none;
+    height: 600px;
+}
 
-    .branches_map {
-        height: 600px;
-    }
+.branches_map {
+    height: 600px;
+}
+
+#canvas {
+    background: #ffffff;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 10px;
+    -webkit-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+    -moz-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+    width: 950px;
+    height: 520px;
+}
+
+h1 {
+    text-shadow: 2px 2px #23751f;
+}
+
+h2 {
+    text-shadow: 2px 2px #23751f;
+}
+
+h3 {
+    text-shadow: 2px 2px #23751f;
+}
+
+li { 
+-webkit-transition: width 2s;
+    transition: width 2s;
+}
+
+li:hover {
+    width: 150px;
+}
+
+#catalog_div {
+    border: 1px;
+    border-radius: 15px 50px;
+    background-color: #ffffff;
+}
+
+video{
+    width: 450px;
+    height: 360px;
+}
+
+.three-col {
+       -moz-column-count: 3;
+       -moz-column-gap: 20px;
+       -webkit-column-count: 3;
+       -webkit-column-gap: 20px;
+}
+
+.filterArea {
+
+}
+
+.filterField {
+
+}
+
+.filterArea > .filterField {
+    display: inline-block;
+    margin-right: 1em;
+}

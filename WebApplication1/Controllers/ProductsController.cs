@@ -210,12 +210,12 @@ namespace WebApplication1.Controllers
         }
         public IQueryable<Products> SearchByPrice(IQueryable<Products> products, string min, string max)
         {
-            if (!String.IsNullOrEmpty(min))
+            if (!String.IsNullOrEmpty(min) && min.All(char.IsDigit))
             {
                 int minInt = int.Parse(min);
                 products = products.Where(p => p.Price >= minInt);
             }
-            if (!String.IsNullOrEmpty(max))
+            if (!String.IsNullOrEmpty(max) && max.All(char.IsDigit))
             {
                 int maxInt = int.Parse(max);
                 products = products.Where(p => p.Price <= maxInt);

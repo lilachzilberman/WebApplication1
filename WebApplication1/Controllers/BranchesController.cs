@@ -24,7 +24,7 @@ namespace WebApplication1.Controllers
         // GET: Branches
         public ActionResult Index()
         {
-            return View(db.Branches.ToList());
+            return View(db.Branches.OrderBy(b => b.City).ToList());
         }
 
         // GET: Branches/Details/5

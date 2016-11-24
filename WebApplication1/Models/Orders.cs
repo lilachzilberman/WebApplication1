@@ -14,15 +14,14 @@ namespace WebApplication1.Models
             OrderProducts = new HashSet<OrderProducts>();
         }
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required]
         [StringLength(128)]
         public string UserId { get; set; }
 
-        public TimeSpan CreationTime { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime CreationTime { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderProducts> OrderProducts { get; set; }

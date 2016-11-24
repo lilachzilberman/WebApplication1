@@ -14,114 +14,30 @@ namespace WebApplication1.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Orders
-        public ActionResult Index()
+        // GET: OrdersView
+        [Authorize(Roles = "Admin")]
+        public ActionResult OrdersView(string UserEmail)
         {
-            return View(db.Orders.ToList());
+            var results = (from prodOr in db.OrderProducts 
+                               join order in db.Orders on prodOr.OrderId equals order.Id
+                               join prod in db.Products on prodOr.ProductId equals prod.Id
+                               join user in db.Users on order.UserId equals user.Id
+                               select new OrdersViewModel {Email = user.Email,
+                                   OrderId = order.Id,
+                                   OrderDate = order.CreationTime,
+                                   ProductName = prod.Name,
+                                   Quantity = prodOr.Quantity});
+
+            if (!String.IsNullOrEmpty(UserEmail))
+            {
+                results = SearchByUser(results, UserEmail);
+            }
+            return View(results);
         }
 
-        // GET: Orders/Details/5
-        public ActionResult Details(int? id)
+        public IQueryable<OrdersViewModel> SearchByUser(IQueryable<OrdersViewModel> results, string user)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Orders orders = db.Orders.Find(id);
-            if (orders == null)
-            {
-                return HttpNotFound();
-            }
-            return View(orders);
-        }
-
-        // GET: Orders/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Orders/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,UserId,CreationTime")] Orders orders)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Orders.Add(orders);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(orders);
-        }
-
-        // GET: Orders/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Orders orders = db.Orders.Find(id);
-            if (orders == null)
-            {
-                return HttpNotFound();
-            }
-            return View(orders);
-        }
-
-        // POST: Orders/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,UserId,CreationTime")] Orders orders)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(orders).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(orders);
-        }
-
-        // GET: Orders/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Orders orders = db.Orders.Find(id);
-            if (orders == null)
-            {
-                return HttpNotFound();
-            }
-            return View(orders);
-        }
-
-        // POST: Orders/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Orders orders = db.Orders.Find(id);
-            db.Orders.Remove(orders);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+            return results.Where(p => p.Email.ToString().Equals(user));
         }
     }
 }
